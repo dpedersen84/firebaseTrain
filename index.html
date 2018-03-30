@@ -8,12 +8,18 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
 
 </head>
 <body>
     <nav class="grey darken-2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">DP</a>
+            
+            <a href="#" class="brand-logo">DP<i class="material-icons left">code</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="#">Back</a></li>
                 </ul>
@@ -23,9 +29,9 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12">
-                <div class="card blue-grey darken-1">
+                <div class="card grey darken-4">
                     <div class="card-content white-text">
-                        <span class="card-title center-align">Train Time!</span>
+                        <span class="card-title center-align"><h3>Train Time!</span></h3>
                         <p><img class="responsive-img" src="./assets/images/train.png"></p>
                     </div>
                 </div>
@@ -47,12 +53,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            <!-- First Row -->
+                            <tr class="train">
+                                <!-- Columns -->
+                                <!-- Train Name -->
+                                <td>Little Engine That Could</td>
+                                <!-- Destination -->
+                                <td>San Francisco</td>
+                                <!-- Frequency -->
+                                <td>60</td>
+                                <!-- Next Arrival -->
+                                <td>07:45 PM</td>
+                                <!-- Minutes Away -->
+                                <td>20</td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -74,6 +87,7 @@
         </div>                   
     </div>
 
+    <!-- Train Form -->
     <div class="container">
         <div class="row">
             <form class="col s12">
@@ -101,6 +115,13 @@
                         <label for="frequency">Frequency</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="submit-field col s12">
+                    <button class="btn waves-effect grey darken-4" type="submit" name="action" id="submitTrain">Submit
+                        <i class="material-icons right">train</i>
+                    </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -114,11 +135,10 @@
     </footer>
 
 
-
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
     <script type="text/javascript" src="javascript.js"></script>
 
 </body>
