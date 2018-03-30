@@ -28,6 +28,7 @@ $(document).ready(function() {
         var trainTime = $("#train_time").val().trim();
         var trainFrequency = $("#frequency").val().trim();
 
+        //Local Object
         var newTrain = {
             name: trainName,
             destination:trainDestination,
@@ -42,13 +43,32 @@ $(document).ready(function() {
         console.log(newTrain.time);
         console.log(newTrain.frequency);
 
+        //Empty text-boxes
         $("#train_name").val("");
         $("#destination").val("");
         $("#train_time").val("");
         $("#frequency").val("");
     })
 
+    //Firebase event for adding trains to database and a row in HTML
+    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+        console.log(childSnapshot.val());
 
+        //Store variables
+        var trainName = childSnapshot.val().name;
+        var trainDestination = childSnapshot.val().destination;
+        var trainTime = childSnapshot.val().time;
+        var trainFrequency = childSnapshot.val().frequency;
+
+        //Train Info
+        console.log(trainName);
+        console.log(trainDestination);
+        console.log(trainTime);
+        console.log(trainFrequency);
+
+        
+
+    })
 
 
 
