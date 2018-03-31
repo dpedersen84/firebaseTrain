@@ -38,10 +38,10 @@ $(document).ready(function() {
 
         database.ref().push(newTrain);
 
-        console.log(newTrain.name);
-        console.log(newTrain.destination);
-        console.log(newTrain.time);
-        console.log(newTrain.frequency);
+        // console.log(newTrain.name);
+        // console.log(newTrain.destination);
+        // console.log(newTrain.time);
+        // console.log(newTrain.frequency);
 
         //Empty text-boxes
         $("#train_name").val("");
@@ -61,14 +61,33 @@ $(document).ready(function() {
         var trainFrequency = childSnapshot.val().frequency;
 
         //Train Info
-        console.log(trainName);
-        console.log(trainDestination);
-        console.log(trainTime);
-        console.log(trainFrequency);
+        console.log("Train Name: " + trainName);
+        console.log("Destination: " + trainDestination);
+        // console.log(trainTime);
+        console.log("Train Frequency: " + trainFrequency);
+
+        //Converted Train Time
+        var trainTimeConverted = moment(trainTime, "hh:mm").subtract(1, "years");
+        console.log("First Train: " + trainTimeConverted);
+        //Current Time
+        var currentTime = moment();
+        console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+        //Difference in Time
+        var diffTime = moment().diff(moment(trainTimeConverted), "minutes");
+        console.log("Difference in Time: " + diffTime);
+        //Time Apart (Remainder)
+        var trainRemainder = diffTime % trainFrequency;
+        console.log("Time Apart: " + trainRemainder);
+        //Minutes Until Train
+        var trainMinutesUntil = trainFrequency - trainRemainder;
+        console.log("Minutes Until Next Train: " + trainMinutesUntil);
+        //Next Train
+        var nextTrain = moment().add(trainMinutesUntil, "minutes");
+        console.log("Arrival Time: " + moment(nextTrain).format("hh:mm"));
 
         //Append train info to table
         $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
-        trainTime + "</td><td>" + trainFrequency + "</td></tr>")
+        trainFrequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + trainMinutesUntil + "</td></tr>")
     })
 
 
