@@ -66,8 +66,9 @@ $(document).ready(function() {
         console.log(trainTime);
         console.log(trainFrequency);
 
-        
-
+        //Append train info to table
+        $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
+        trainTime + "</td><td>" + trainFrequency + "</td></tr>")
     })
 
 
