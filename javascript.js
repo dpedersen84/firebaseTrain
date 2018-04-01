@@ -84,6 +84,7 @@ $(document).ready(function() {
         //Next Train
         var nextTrain = moment().add(trainMinutesUntil, "minutes");
         console.log("Arrival Time: " + moment(nextTrain).format("hh:mm"));
+        console.log("======================================================================");
 
         //Append train info to table
         $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
