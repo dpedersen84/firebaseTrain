@@ -38,11 +38,6 @@ $(document).ready(function() {
 
         database.ref().push(newTrain);
 
-        // console.log(newTrain.name);
-        // console.log(newTrain.destination);
-        // console.log(newTrain.time);
-        // console.log(newTrain.frequency);
-
         //Empty text-boxes
         $("#train_name").val("");
         $("#destination").val("");
@@ -63,7 +58,6 @@ $(document).ready(function() {
         //Train Info
         console.log("Train Name: " + trainName);
         console.log("Destination: " + trainDestination);
-        // console.log(trainTime);
         console.log("Train Frequency: " + trainFrequency);
 
         //Converted Train Time
@@ -71,7 +65,7 @@ $(document).ready(function() {
         console.log("First Train: " + trainTimeConverted);
         //Current Time
         var currentTime = moment();
-        console.log("Current Time: " + moment(currentTime).format("hh:mm"));
+        console.log("Current Time: " + moment(currentTime).format("hh:mm A"));
         //Difference in Time
         var diffTime = moment().diff(moment(trainTimeConverted), "minutes");
         console.log("Difference in Time: " + diffTime);
@@ -83,24 +77,16 @@ $(document).ready(function() {
         console.log("Minutes Until Next Train: " + trainMinutesUntil);
         //Next Train
         var nextTrain = moment().add(trainMinutesUntil, "minutes");
-        console.log("Arrival Time: " + moment(nextTrain).format("hh:mm"));
+        console.log("Arrival Time: " + moment(nextTrain).format("hh:mm A"));
         console.log("======================================================================");
 
         //Append train info to table
         $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
-        trainFrequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + trainMinutesUntil + "</td></tr>")
+        trainFrequency + "</td><td>" + moment(nextTrain).format("hh:mm A") + "</td><td>" + trainMinutesUntil + "</td></tr>")
     })
 
 
-
-    //FUNCTIONS + EVENTS
-    //---------------------------------------------------------------
-    //MAIN PROCESS
-    //---------------------------------------------------------------
-
-
-
-
+        //My first train time and Difference in Time aren't formatting in the console
 
 
 
